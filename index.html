@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Carousel</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        width: 100%;
+      }
+      .carousel {
+        width: 100%;
+        background: #000;
+      }
+      .carousel-item {
+        height: 562px;
+        position: relative;
+      }
+      .carousel-item video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border: none;
+      }
+      .carousel-control-prev,
+      .carousel-control-next {
+        background-color: rgba(0, 0, 0, 0);
+        width: 5%;
+      }
+      .video-control {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.3s;
+      }
+      .video-control svg {
+        width: 40px;
+        height: 40px;
+        fill: white;
+      }
+      .video-control.playing {
+        opacity: 0;
+      }
+      .video-control:hover {
+        background: rgba(0, 0, 0, 0.7);
+      }
+      .video-title {
+        position: absolute;
+        bottom: 60px;
+        left: 30px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-family: "Times New Roman", Times, serif;
+        font-style: italic;
+      }
+
+      /* Tablet için media query */
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+        }
+        .carousel-item {
+          height: 432px;
+        }
+        .video-control {
+          width: 60px;
+          height: 60px;
+        }
+        .video-control svg {
+          width: 30px;
+          height: 30px;
+        }
+        .video-title {
+          font-size: 13px;
+          bottom: 50px;
+          left: 15px;
+        }
+      }
+
+      /* Mobil için media query */
+      @media (max-width: 480px) {
+        body {
+          background-color: transparent;
+        }
+        .container {
+          padding: 0;
+        }
+        .carousel {
+          background: transparent;
+        }
+        .carousel-item {
+          height: 100vh;
+          overflow: hidden;
+          background: transparent;
+        }
+        .carousel-item video {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          min-width: 100%;
+          min-height: 100%;
+          width: auto;
+          height: auto;
+          z-index: -1;
+          object-fit: cover;
+        }
+        .video-control {
+          width: 50px;
+          height: 50px;
+          z-index: 2;
+        }
+        .video-control svg {
+          width: 25px;
+          height: 25px;
+        }
+        .carousel-control-prev,
+        .carousel-control-next {
+          width: 10%;
+          z-index: 2;
+        }
+        .video-title {
+          font-size: 11px;
+          bottom: 40px;
+          left: 10px;
+          padding: 5px 10px;
+          z-index: 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="videoCarousel" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <video autoplay muted>
+              <source src="1 Miunte Piranha Attack.mp4" type="video/mp4" />
+            </video>
+            <div class="video-title">1 Minute Piranha Attack</div>
+            <button class="video-control">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+          <div class="carousel-item">
+            <video autoplay muted>
+              <source src="Clouds  9825.mp4" type="video/mp4" />
+            </video>
+            <div class="video-title">Clouds 9825</div>
+            <button class="video-control">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+          <div class="carousel-item">
+            <video autoplay muted>
+              <source src="Fall.mp4" type="video/mp4" />
+            </video>
+            <div class="video-title">Fall</div>
+            <button class="video-control">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+          <div class="carousel-item">
+            <video autoplay muted>
+              <source src="Prptlll.mp4" type="video/mp4" />
+            </video>
+            <div class="video-title">Purple</div>
+            <button class="video-control">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+          <div class="carousel-item">
+            <video autoplay muted>
+              <source src="Thenude903.mp4" type="video/mp4" />
+            </video>
+            <div class="video-title">The Nude 903</div>
+            <button class="video-control">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#videoCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Önceki</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#videoCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Sonraki</span>
+        </button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var carousel = document.getElementById("videoCarousel");
+        var videos = document.querySelectorAll("video");
+        var controls = document.querySelectorAll(".video-control");
+
+        // Her video ve kontrol butonu için event listener'ları ekle
+        videos.forEach((video, index) => {
+          const control = controls[index];
+
+          control.addEventListener("click", function () {
+            if (video.paused) {
+              video.play();
+              control.classList.add("playing");
+            } else {
+              video.pause();
+              control.classList.remove("playing");
+            }
+          });
+
+          // Video bittiğinde play butonunu göster ve videoyu başa al
+          video.addEventListener("ended", function () {
+            control.classList.remove("playing");
+            video.currentTime = 0; // Videoyu başa al
+          });
+
+          // Video oynatıldığında/durdurulduğunda butonun görünürlüğünü güncelle
+          video.addEventListener("play", function () {
+            control.classList.add("playing");
+          });
+
+          video.addEventListener("pause", function () {
+            control.classList.remove("playing");
+          });
+        });
+
+        // Carousel slide olduğunda videoyu durdur
+        carousel.addEventListener("slide.bs.carousel", function () {
+          videos.forEach(function (video, index) {
+            video.pause();
+            video.currentTime = 0; // Videoyu başa al
+            controls[index].classList.remove("playing");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
